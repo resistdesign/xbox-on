@@ -36,4 +36,4 @@ node_modules
 /.idea
 /node_modules/on.sh
 
-/on.sh
+/config.js
