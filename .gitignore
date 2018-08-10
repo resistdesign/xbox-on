@@ -34,3 +34,6 @@ node_modules
 
 # IDE
 /.idea
+/node_modules/on.sh
+
+/on.sh
