@@ -3,7 +3,8 @@
 require('colors');
 
 var assert = require('assert'),
-    program = require('commander');
+  program = require('commander');
+config = require('./config');
 
 var Xbox = require('./index');
 
@@ -15,6 +16,8 @@ program
   .option('-d, --delay <delay_between_tries>', 'Delay between power packets')
   .parse(process.argv);
 
+Object.assign(program, config);
+
 assert(program.ip, 'Missing required option <ip_address>'.red);
 assert(program.live_device_id, 'Missing required option <live_device_id>'.red);
 
@@ -22,6 +25,6 @@ assert(program.live_device_id, 'Missing required option <live_device_id>'.red);
   tries: program.tries,
   delay: program.delay,
   waitForCallback: true
-}, function(err) {
+}, function (err) {
   process.exit(err ? 1 : 0);
 });
